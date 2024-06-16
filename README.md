@@ -3,29 +3,33 @@
 
 <<<<<<< HEAD
 <h1 align="center">
-🌐 POST's/Blogs App (MERN stack) 
+🌐 POST's/WEB3-Property-Dealing(NFT) App  
 </h1>
-<p align="center">
-MongoDB, Expressjs, React/Redux, Nodejs
-</p>
 
-## Source of Data : https://newsapi.org/
+- Solidity (Writing Smart Contracts & Tests)
+- Javascript (React & Testing)
+- [Hardhat](https://hardhat.org/) (Development Framework)
+- [Ethers.js](https://docs.ethers.io/v5/) (Blockchain Interaction)
+- [React.js](https://reactjs.org/) (Frontend Framework)
 
-## clone or download
-```terminal
-$ git clone https://github.com/priyanshu08soni/POST-APP.git
-```
-## Note : Changes [ JWT SECRET , NEWS API SECRET , MONGODB URL ]
+## Requirements For Initial Setup
+- Install [NodeJS](https://nodejs.org/en/)
 
-## Client-side usage(PORT: 3000)
-```terminal
-$ cd post-frontend      // go to client folder
-$ npm i    // npm install packages
-$ npm start // run it locally
-```
-## Server-side usage(PORT: 5000)
-```terminal
-$ cd post-backend //go to the server folder
-$ npm i //npm install packages
-$ npm run server // start the server
-```
+## Setting Up
+### 1. Clone/Download the Repository
+
+### 2. Install Dependencies:
+`$ npm install`
+
+### 3. Run tests
+`$ npx hardhat test`
+
+### 4. Start Hardhat node
+`$ npx hardhat node`
+
+### 5. Run deployment script
+In a separate terminal execute:
+`$ npx hardhat run ./scripts/deploy.js --network localhost`
+
+### 7. Start frontend
+`$ npm run start`
