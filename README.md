@@ -3,7 +3,7 @@
 
 <<<<<<< HEAD
 <h1 align="center">
-🌐 POST's/WEB3-Property-Dealing(NFT) App  
+🌐 WEB3-Property-Dealing(NFT) App  
 </h1>
 
 - Solidity (Writing Smart Contracts & Tests)
