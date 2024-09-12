@@ -172,9 +172,9 @@ header {
   width: 350px;
   height: 275px;
 
-  border: 1px solid var(--clr-black);
+  border: 2px solid gray;
   border-radius: 10px;
-  margin: 10px auto;
+  
 
   cursor: pointer;
   position: relative;

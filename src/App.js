@@ -63,6 +63,7 @@ function App() {
 
   useEffect(() => {
     loadBlockchainData();
+    console.log(homes);
   }, []);
 
   const togglePop = (home) => {
