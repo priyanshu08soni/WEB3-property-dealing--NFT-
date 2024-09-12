@@ -184,10 +184,17 @@ header {
 /* ------------------------------------------------------ */
 /* -- CARDS -- */
 
+.estate_description{
+  color: gray;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
 .cards__section {
   max-width: 1300px;
-  margin: 0 auto;
+  margin: 100px auto;
   padding: 0 20px;
 }
 
@@ -195,7 +202,7 @@ header {
   margin: 50px 0 20px;
   text-align: center;
   color: white;
-  font-size: 3vh;
+  font-size: 4vh;
   text-shadow: 5px 5px 8px blue;
 }
 
@@ -239,8 +246,7 @@ header {
   background-color: var(--clr-white);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-
-  padding: 5px 10px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px -10px 20px 5px;  padding: 5px 10px;
 
   position: absolute;
   bottom: 0;
@@ -272,15 +278,20 @@ header {
   width: 27.77%;
   display: flex;
   justify-content: center;
-  font-size: 1vw;
+  font-size: 2.5vh;
   color: white;
   margin-top: 20px;
   background-color: rgba(110, 137, 236, 0.807);
   border:none;
+  transition: box-shadow 0.3s ease, width 0.3s ease;
+  @media screen and (max-width:1100px) {
+    width: 100%;
+  }
 }
 .homes_button:hover{
   box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
   cursor: pointer;
+  color: blue;
 }
 /* ------------------------------------------------------ */
 /* -- HOMES -- */
@@ -430,10 +441,182 @@ header {
   }
 }
 
+/* about home */
+.about_home_head{
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin: 150px 0 20px;
+  text-align: center;
+  font-size: 5vh;
+  text-shadow: 5px 5px 8px blue;
+}
+.about_description_home{
+  display: flex;
+  justify-content: center;
+  padding-left: 40%;
+  padding-right: 40%;
+  text-align: center;
+  color: gray;
+  line-height: 20px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  @media screen and (max-width:500px) {
+    padding-left: 30px;
+    line-height: 17px;
+    padding-right: 30px;
+  }
+}
+.about_section_home{
+  display: flex;
+  justify-content: center;
+}
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  gap: 20px;
+  width: 90%;
+  max-width: 1400px;
+  color: rgb(76, 97, 164);
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card_about {
+  width: 100%;
+  max-width: 350px;
+  padding: 20px;
+  background-color: rgba(164, 183, 229, 0.374);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease, height 0.5s ease;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Different pillar heights */
+.card1 {
+  height: 400px;
+  bottom: 110px;
+  line-height: 35px;
+  @media screen and (max-width:500px) {
+    height: 250px;
+    bottom: -20px;
+    line-height: 20px;
+  }
+}
+
+.card2 {
+  height: 150px;
+  bottom: 110px;
+  line-height: 40px;
+  @media screen and (max-width:500px) {
+    bottom: -20px;
+    height: 100px;
+    line-height: 20px;
+  }
+}
+
+.card3 {
+  height: 400px;
+  bottom: 110px;
+  line-height: 35px;
+  @media screen and (max-width:500px) {
+    bottom: -60px;
+    height: 300px;
+    line-height: 20px;
+  }
+}
+
+/* Card hover animations */
+.card1:hover {
+  transform: translateX(20px);
+}
+
+.card2:hover {
+  transform: translateX(-20px);
+}
+
+.card3:hover {
+  transform: translateY(-20px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card_about {
+    max-width: 90%;
+    margin-bottom: 20px;
+  }
+}
+.about_button{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-shadow: 8px 8px 10px blue;
+  display: flex;
+  justify-content: center;
+  font-size: 2.5vh;
+  color: white;
+  margin-top: 20px;
+  background-color: rgba(110, 137, 236, 0.807);
+  border:none;
+  transition: box-shadow 0.3s ease, width 0.3s ease;
+}
+.about_button:hover{
+  box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+  cursor: pointer;
+  color: blue;
+}
+
 footer{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-top: 4vw;
+  font-size: 3vw;
+  color: white;
+  letter-spacing: 5px;
+  font-family: "Rubik", sans-serif;
+  z-index: 70;
+  position: relative;
+  @media screen and (max-width:500px) {
+    letter-spacing: 1px;
+    
+  }
+}
+
+/* City Image */
+
+.climbing{
+  margin-top: 8vw;
+  color: white;
+  @media screen and (max-width:500px) {
+    margin-top: 25vw;
+    
+  }
+
+}
+.climbing img{
+  width: 100%;
+  position: absolute;
+}
+.climb_view{
+  display: flex;
+  justify-content: center;
+}
+.view_des{
+  z-index: 20;
+  margin-top: 4vw;
+}
+.climbing h1{
+  font-size: 3vw;
+  font-family: "Rubik", sans-serif;
+}
+.climbing h2{
+  font-size: 5vw;
+  font-family: "Rubik", sans-serif;
 }
