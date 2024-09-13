@@ -51,7 +51,9 @@ const Home = ({ home, provider, account,escrow, togglePop }) => {
     setOwner(owner);
   };
 
-
+//If there is a nounce data exceeded 
+// then you have  to delete the nounce data from the meatamask 
+//Flow of transactions is : buy, inspection, lender, sell. 
   const buyHandler = async () =>{
     const escrowAmount = await escrow.escrowAmount(home.id);
     const signer = await provider.getSigner();
@@ -106,6 +108,7 @@ const Home = ({ home, provider, account,escrow, togglePop }) => {
 
 
   useEffect(() => {
+    console.log(owner);
     fetchDetails();
     fetchOwner();
   }, [hasSold]);

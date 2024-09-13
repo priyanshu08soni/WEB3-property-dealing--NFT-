@@ -62,10 +62,8 @@ const LandingPage = () => {
       setAccount(account);
     });
   };
-  console.log(homes)
   useEffect(() => {
     loadBlockchainData();
-    console.log(homes);
   }, []);
 
   const togglePop = (home) => {
@@ -134,17 +132,17 @@ const LandingPage = () => {
       <h3 className="about_home_head">About us</h3>
       <div className="about_description_home">Our commitment to excellence and innovation is reflected in our adoption of blockchain technology for secure transactions using ethers, making property ownership seamless and transparent.</div>
       <div className="about_section_home">
-        <div class="card-container">
-          <div class="card_about card1">
+        <div className="card-container">
+          <div className="card_about card1">
             <p>Welcome to Properties., where we turn your dream of owning a property with breathtaking views into reality. With years of experience in the real estate industry, we have successfully delivered numerous projects that have brought satisfaction to homeowners across various locations.</p>
           </div>
-          <div class="card_about card2">
+          <div className="card_about card2">
             <p>Let us help you find your next property with a view that inspires.</p>
             <NavLink to="/about" className="about_button">
                 Let Us Help You.
             </NavLink>
           </div>
-          <div class="card_about card3">
+          <div className="card_about card3">
             <p>Over the years, we have earned the trust of our clients through dedication and a customer-first approach, ensuring that every project meets the highest standards of quality. Our portfolio includes a diverse range of properties, from luxurious villas to modern apartments, all designed to offer stunning views and exceptional living experiences.</p>
           </div>
         </div>
