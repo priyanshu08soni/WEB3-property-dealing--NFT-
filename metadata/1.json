@@ -1,21 +1,29 @@
 {
-    "name": "Luxury NYC Penthouse",
+    "name": " New Luxury 3 bedrooms apartment with Lagoon view in Rio de Janeiro",
     "address": "157 W 57th St APT 49B, New York, NY 10019",
-    "description": "Luxury Penthouse located in the heart of NYC",
-    "image": "https://ipfs.io/ipfs/QmQUozrHLAusXDxrvsESJ3PYB3rUeUuBAvVWw6nop2uu7c/1.png",
+    "description": " 3 bedrooms Luxury apartment located in Lagoon and Botanical Garden of Rio de Janeiro , in front of Lagoon Lagoa Rodrigo de Freitas , Club Piraque, nearly to Schools , Botanical Garden of Rio de Janeiro,  Jockey Club , Tablado Drama School, supermarket,pharmacy,  has pool,  gym, in the Condo",
+    "image": [
+        {
+            "1":"https://coffee-hilarious-crayfish-594.mypinata.cloud/ipfs/QmbVL53Avy9SitWsjf8SXqW9BtPQd5LSUg4RpXBEsbayus/img1.jpg",
+            "2":"https://coffee-hilarious-crayfish-594.mypinata.cloud/ipfs/QmbVL53Avy9SitWsjf8SXqW9BtPQd5LSUg4RpXBEsbayus/img2.jpg",
+            "3":"https://coffee-hilarious-crayfish-594.mypinata.cloud/ipfs/QmbVL53Avy9SitWsjf8SXqW9BtPQd5LSUg4RpXBEsbayus/img3.jpg",
+            "4":"https://coffee-hilarious-crayfish-594.mypinata.cloud/ipfs/QmbVL53Avy9SitWsjf8SXqW9BtPQd5LSUg4RpXBEsbayus/img4.jpg",
+            "5":"https://coffee-hilarious-crayfish-594.mypinata.cloud/ipfs/QmbVL53Avy9SitWsjf8SXqW9BtPQd5LSUg4RpXBEsbayus/img5.jpg"
+        }
+    ],
     "id": "1",
     "attributes": [
         {
             "trait_type": "Purchase Price",
-            "value": 20
+            "value": "R$4500 millions BRL" 
         },
         {
             "trait_type": "Type of Residence",
-            "value": "Condo"
+            "value": "Ask us please Condo"
         },
         {
             "trait_type": "Bed Rooms",
-            "value": 2
+            "value": 3
         },
         {
             "trait_type": "Bathrooms",
@@ -23,11 +31,15 @@
         },
         {
             "trait_type": "Square Feet",
-            "value": 2200
+            "value": 1765
         },
         {
             "trait_type": "Year Built",
-            "value": 2013
+            "value": 2022
+        },
+        {
+            "trait_type": "Location",
+            "value": "https://g.co/kgs/DJ7MjUp"
         }
     ]
 }

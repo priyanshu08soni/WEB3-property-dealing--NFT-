@@ -46,7 +46,7 @@ const Home = ({ home, provider, account,escrow, togglePop }) => {
 
   const fetchOwner = async () => {
     if (await escrow.isListed(home.id)) return;
-
+    
     const owner = await escrow.buyer(home.id);
     setOwner(owner);
   };
@@ -113,8 +113,13 @@ const Home = ({ home, provider, account,escrow, togglePop }) => {
     <div className="home">
       <div className="home__details">
         <div className="home__image">
-          <img src={home?.image} alt="" />
+            <img src={home?.image[0]["1"]} alt="" />
+            <img src={home?.image[0]["2"]} alt="" />
+            <img src={home?.image[0]["3"]} alt="" />
+            <img src={home?.image[0]["4"]} alt="" />
+            <img src={home?.image[0]["5"]} alt="" />
         </div>
+       
         <div className="home__overview">
           <h1>{home?.name}</h1>
           <p>

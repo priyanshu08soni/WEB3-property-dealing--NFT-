@@ -62,7 +62,7 @@ const LandingPage = () => {
       setAccount(account);
     });
   };
-
+  console.log(homes)
   useEffect(() => {
     loadBlockchainData();
     console.log(homes);
@@ -110,7 +110,7 @@ const LandingPage = () => {
                   }}
                 >
                   <div className="card__image">
-                    <img src={home?.image} alt="Home" />
+                    <img src={home?.image[0]["1"]} alt="Home" />
                   </div>
                   <div className="card__info">
                     <h4>{home?.attributes[0]?.value} ETH</h4>

@@ -18,12 +18,12 @@ async function main() {
 
   console.log(`Deployed Real Estate Contract at : ${realEstate.address}`);
   
-  console.log(`Minting 3 properties...\n`);
-  for (let i = 0; i < 3; i++) {
+  console.log(`Minting 1 properties...\n`);
+  for (let i = 0; i < 1; i++) {
     const transaction = await realEstate
     .connect(seller)
     .mint(
-      `https://ipfs.io/ipfs/QmQVcpsjrA6cr1iJjZAodYwmPekYgbnXGo4DFubJiLc2EB/${
+      `https://coffee-hilarious-crayfish-594.mypinata.cloud/ipfs/QmZyNvqhQdFDJ1nsoeW5QPWBP9YmsQgqkpnQ3ZbAjpgz4s/${
           i + 1
         }.json`
         );
@@ -41,20 +41,14 @@ async function main() {
  
   console.log(`Deployed Escrow Contract at : ${escrow.address}`);
   
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 1; i++) {
     let transaction = await realEstate.connect(seller).approve(escrow.address,i+1);
     await transaction.wait();
     
   }
 
   //List Properties 
-  transaction = await escrow.connect(seller).list(1,buyer.address,tokens(20),tokens(10));
-  await transaction.wait();
-
-  transaction = await escrow.connect(seller).list(2,buyer.address,tokens(15),tokens(5));
-  await transaction.wait();
-  
-  transaction = await escrow.connect(seller).list(3,buyer.address,tokens(10),tokens(5));
+  transaction = await escrow.connect(seller).list(1,buyer.address,tokens(10),tokens(5));
   await transaction.wait();
   console.log('Finished.')
 }

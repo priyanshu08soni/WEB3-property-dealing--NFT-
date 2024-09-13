@@ -332,7 +332,10 @@ header {
 
 .home__image {
   max-width: 500px;
+  max-height: 400px;
   margin: 20px auto;
+  padding-right: 40px;
+  overflow-y: scroll;
 }
 
 .home__image img {
