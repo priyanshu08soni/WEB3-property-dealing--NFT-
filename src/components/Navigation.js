@@ -1,4 +1,4 @@
-import logo from '../assets/logo.svg';
+import logo from "../assets/logo/icon.png"
 
 const Navigation = ({ account, setAccount }) => {
     const connectHandler = async ()=>{
@@ -10,7 +10,7 @@ const Navigation = ({ account, setAccount }) => {
         <nav>
             <div className="nav__brand">
                 <img src={logo} alt="logo" />
-                <h1>Properties.</h1>
+                <h1>Imóveis à vista</h1>
             </div>
             {
                 account ? (

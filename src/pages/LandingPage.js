@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import logo from "../assets/logo.svg";
+import logo from "../assets/logo/icon.png"
 import city from "../assets/houses.png"
 // Components
 import Navigation from "../components/Navigation";
@@ -77,9 +77,9 @@ const LandingPage = () => {
       <Search />
       <div className="cards__section">
         <div>
-          <div className="nav__brand">
-            <img src={logo} alt="logo" />
-            <h1>Properties.</h1>
+          <div className="nav__brand_landing">
+              <img src={logo} style={{borderRadius:"19px"}} alt="logo" />
+              <h1>Imóveis à vista</h1>
           </div>
           <div className="estate_description">
             <p>Our real estate website offers a </p>

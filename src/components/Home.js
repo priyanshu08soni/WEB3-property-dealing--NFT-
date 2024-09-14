@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import close from "../assets/close.svg";
 
-const Home = ({ home, provider, account,escrow, togglePop }) => {
+const Home = ({ home, provider, account, escrow, togglePop }) => {
   const [hasBought, setHasBought] = useState(false);
   const [hasLended, setHasLended] = useState(false);
   const [hasInspected, setHasInspected] = useState(false);
@@ -46,20 +46,22 @@ const Home = ({ home, provider, account,escrow, togglePop }) => {
 
   const fetchOwner = async () => {
     if (await escrow.isListed(home.id)) return;
-    
+
     const owner = await escrow.buyer(home.id);
     setOwner(owner);
   };
 
-//If there is a nounce data exceeded 
-// then you have  to delete the nounce data from the meatamask 
-//Flow of transactions is : buy, inspection, lender, sell. 
-  const buyHandler = async () =>{
+  //If there is a nounce data exceeded
+  // then you have  to delete the nounce data from the meatamask
+  //Flow of transactions is : buy, inspection, lender, sell.
+  const buyHandler = async () => {
     const escrowAmount = await escrow.escrowAmount(home.id);
     const signer = await provider.getSigner();
 
     //Buyer deposit earnest
-    let transaction = await escrow.connect(signer).depositEarnest(home.id, {value: escrowAmount});
+    let transaction = await escrow
+      .connect(signer)
+      .depositEarnest(home.id, { value: escrowAmount });
     await transaction.wait();
 
     //Buyer approves...
@@ -67,19 +69,19 @@ const Home = ({ home, provider, account,escrow, togglePop }) => {
     await transaction.wait();
 
     setHasBought(true);
-  }
-  const inspectHandler = async () =>{
+  };
+  const inspectHandler = async () => {
     const signer = await provider.getSigner();
 
     //Inspector updates status
-    const transaction = await escrow.connect(signer).updateInspectionStatus(home.id,true);
+    const transaction = await escrow
+      .connect(signer)
+      .updateInspectionStatus(home.id, true);
     await transaction.wait();
 
     setHasInspected(true);
-
-
-  }
-  const lendHandler = async () =>{
+  };
+  const lendHandler = async () => {
     const signer = await provider.getSigner();
 
     //Lender approves...
@@ -87,12 +89,18 @@ const Home = ({ home, provider, account,escrow, togglePop }) => {
     await transaction.wait();
 
     //Lender sends funds to contract...
-    const lendAmount = (await escrow.purchasePrice(home.id) - await escrow.escrowAmount(home.id));
-    await signer.sendTransaction({ to: escrow.address, value: lendAmount.toString(), gasLimit: 60000 })
+    const lendAmount =
+      (await escrow.purchasePrice(home.id)) -
+      (await escrow.escrowAmount(home.id));
+    await signer.sendTransaction({
+      to: escrow.address,
+      value: lendAmount.toString(),
+      gasLimit: 60000,
+    });
 
     setHasLended(true);
-  }
-  const sellHandler = async () =>{
+  };
+  const sellHandler = async () => {
     const signer = await provider.getSigner();
 
     //Seller approves...
@@ -104,8 +112,7 @@ const Home = ({ home, provider, account,escrow, togglePop }) => {
     await transaction.wait();
 
     setHasSold(true);
-  }
-
+  };
 
   useEffect(() => {
     console.log(owner);
@@ -116,13 +123,13 @@ const Home = ({ home, provider, account,escrow, togglePop }) => {
     <div className="home">
       <div className="home__details">
         <div className="home__image">
-            <img src={home?.image[0]["1"]} alt="" />
-            <img src={home?.image[0]["2"]} alt="" />
-            <img src={home?.image[0]["3"]} alt="" />
-            <img src={home?.image[0]["4"]} alt="" />
-            <img src={home?.image[0]["5"]} alt="" />
+          <img src={home?.image[0]["1"]} alt="" />
+          <img src={home?.image[0]["2"]} alt="" />
+          <img src={home?.image[0]["3"]} alt="" />
+          <img src={home?.image[0]["4"]} alt="" />
+          <img src={home?.image[0]["5"]} alt="" />
         </div>
-       
+
         <div className="home__overview">
           <h1>{home?.name}</h1>
           <p>
@@ -140,13 +147,37 @@ const Home = ({ home, provider, account,escrow, togglePop }) => {
           ) : (
             <div>
               {account === inspector ? (
-                <button className="home__buy" onClick={inspectHandler} disabled={hasInspected}>Approve Inspection</button>
+                <button
+                  className="home__buy"
+                  onClick={inspectHandler}
+                  disabled={hasInspected}
+                >
+                  Approve Inspection
+                </button>
               ) : account === lender ? (
-                <button className="home__buy" onClick={lendHandler} disabled={hasLended}>Approve & Lend</button>
+                <button
+                  className="home__buy"
+                  onClick={lendHandler}
+                  disabled={hasLended}
+                >
+                  Approve & Lend
+                </button>
               ) : account === seller ? (
-                <button className="home__buy" onClick={sellHandler} disabled={hasSold}>Approve & Sell</button>
+                <button
+                  className="home__buy"
+                  onClick={sellHandler}
+                  disabled={hasSold}
+                >
+                  Approve & Sell
+                </button>
               ) : (
-                <button className="home__buy" onClick={buyHandler} disabled={hasBought}>Buy</button>
+                <button
+                  className="home__buy"
+                  onClick={buyHandler}
+                  disabled={hasBought}
+                >
+                  Buy
+                </button>
               )}
               <button className="home__contact">Contact agent</button>
             </div>
@@ -159,7 +190,11 @@ const Home = ({ home, provider, account,escrow, togglePop }) => {
           <h2>Facts and Features</h2>
           <ul>
             {home?.attributes.map((attribute, index) => {
-              return (
+              return attribute.trait_type === "Location" ? (
+                <li key={index}>
+                  <strong>{attribute.trait_type}</strong>:<a href={attribute.value}>{attribute.value}</a>
+                </li>
+              ) : (
                 <li key={index}>
                   <strong>{attribute.trait_type}</strong>:{attribute.value}
                 </li>
